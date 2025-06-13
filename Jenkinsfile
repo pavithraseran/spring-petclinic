@@ -94,19 +94,19 @@ pipeline {
         }
     }
 
-  stage('Health Check') {
-    steps {
-        sh '''
-            echo "[INFO] Waiting for app to become healthy..."
-            for i in {1..10}; do
-                if curl -s http://13.233.255.6:8080/actuator/health | grep '"status":"UP"' > /dev/null; then
+       stage('Health Check') {
+        steps {
+          sh '''
+             echo "[INFO] Waiting for app to become healthy..."
+             for i in {1..10}; do
+                 if curl -s http://13.233.255.6:8080/actuator/health | grep '"status":"UP"' > /dev/null; then
                     echo "[SUCCESS] App is healthy!"
                     exit 0
-                fi
-                sleep 5
-            done
-            echo "[ERROR] App failed health check."
-            exit 1
+                 fi
+                 sleep 5
+             done
+             echo "[ERROR] App failed health check."
+             exit 1
         '''
     }
 }
