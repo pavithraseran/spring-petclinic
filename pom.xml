@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
 
   <name>spring-petclinic</name>
-  <description>Spring Boot App with Jakarta Validation & Spring Data JPA</description>
+  <description>Spring Boot App with Jakarta Validation &amp; Spring Data JPA</description>
 
   <properties>
     <java.version>17</java.version>
