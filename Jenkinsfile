@@ -25,11 +25,12 @@ pipeline {
                 withSonarQubeEnv("${SONARQUBE}") {
                     withCredentials([string(credentialsId: 'sonar-token', variable: 'SONAR_TOKEN')]) {
                         sh """
-                            mvn clean verify sonar:sonar \
-                            -Dsonar.projectKey=${SONAR_PROJECT_KEY} \
-                            -Dsonar.organization=${SONAR_ORG} \
-                            -Dsonar.host.url=https://sonarcloud.io \
-                            -Dsonar.login=${SONAR_TOKEN}
+                            export SONAR_TOKEN=\$SONAR_TOKEN
+                            mvn clean verify sonar:sonar \\
+                              -Dsonar.projectKey=${SONAR_PROJECT_KEY} \\
+                              -Dsonar.organization=${SONAR_ORG} \\
+                              -Dsonar.host.url=https://sonarcloud.io \\
+                              -Dsonar.login=\$SONAR_TOKEN
                         """
                     }
                 }
