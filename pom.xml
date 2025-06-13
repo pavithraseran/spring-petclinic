@@ -138,7 +138,7 @@
       </exclusions>
     </dependency>
 
-    <!-- Mockito (for @MockitoBean support) -->
+    <!-- Mockito (for @@MockBean support) -->
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
