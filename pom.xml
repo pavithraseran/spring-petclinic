@@ -1,66 +1,77 @@
-<parent>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-parent</artifactId>
-  <version>3.2.5</version>
-  <relativePath/> <!-- lookup parent from repository -->
-</parent>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<properties>
-  <java.version>17</java.version>
-  <!-- Optional if you want to use it elsewhere -->
-  <spring.boot.version>3.2.5</spring.boot.version>
-</properties>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+         https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-<dependencies>
-  <!-- Spring Boot Starters -->
-  <dependency>
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
     <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-web</artifactId>
-  </dependency>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>3.2.5</version>
+    <relativePath/> <!-- lookup parent from repository -->
+  </parent>
 
-  <!-- Spring Boot Starter for Validation -->
-  <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-validation</artifactId>
-  </dependency>
+  <groupId>com.pavithra</groupId>
+  <artifactId>spring-petclinic</artifactId>
+  <version>1.0.0</version>
+  <name>spring-petclinic</name>
+  <description>Spring Petclinic application for Jenkins CI/CD demo</description>
 
-  <!-- Jakarta Validation API (e.g. @NotBlank, @Pattern) -->
-  <dependency>
-    <groupId>jakarta.validation</groupId>
-    <artifactId>jakarta.validation-api</artifactId>
-    <version>3.0.2</version>
-  </dependency>
+  <properties>
+    <java.version>17</java.version>
+  </properties>
 
-  <!-- Jakarta XML Bind API (e.g. @XmlRootElement) -->
-  <dependency>
-    <groupId>jakarta.xml.bind</groupId>
-    <artifactId>jakarta.xml.bind-api</artifactId>
-    <version>4.0.0</version>
-  </dependency>
-
-  <!-- JAXB Runtime (required at runtime for JAXB operations) -->
-  <dependency>
-    <groupId>org.glassfish.jaxb</groupId>
-    <artifactId>jaxb-runtime</artifactId>
-    <version>4.0.4</version>
-  </dependency>
-
-  <!-- Optional: Spring Boot Actuator if you're using /actuator/health -->
-  <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-actuator</artifactId>
-  </dependency>
-
-  <!-- Add other dependencies here (e.g., Spring Data JPA, H2, etc.) -->
-
-</dependencies>
-
-<build>
-  <plugins>
-    <!-- No need to specify version, it's inherited from the parent -->
-    <plugin>
+  <dependencies>
+    <!-- Web app core -->
+    <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-maven-plugin</artifactId>
-    </plugin>
-  </plugins>
-</build>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- Health check -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
+
+    <!-- Validation support -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-validation</artifactId>
+    </dependency>
+
+    <!-- JAXB (XML Bind, optional but common) -->
+    <dependency>
+      <groupId>jakarta.xml.bind</groupId>
+      <artifactId>jakarta.xml.bind-api</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.glassfish.jaxb</groupId>
+      <artifactId>jaxb-runtime</artifactId>
+      <version>4.0.4</version>
+    </dependency>
+
+    <!-- Unit testing -->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Spring Boot Maven Plugin -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
