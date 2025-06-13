@@ -98,7 +98,7 @@ pipeline {
                 sh '''
                     echo "[INFO] Waiting for app to become healthy..."
                     for i in {1..10}; do
-                        if curl -s http://13.233.255.6:8080/actuator/health | grep '"status":"UP"' > /dev/null; then
+                        if curl -s https://13.233.255.6:8080/actuator/health | grep '"status":"UP"' > /dev/null; then
                             echo "[SUCCESS] App is healthy!"
                             exit 0
                         fi
